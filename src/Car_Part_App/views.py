@@ -3,13 +3,15 @@ from django.http import HttpResponse
 from django.views.generic import ListView, CreateView, DetailView
 from django.views.generic.base import TemplateView
 
-#from .filters import CategoryFilter
+# from .filters import CategoryFilter
 from .models import Car, Category
 from django.contrib.auth import login
 from .forms import Car_Part_Form
 from django.urls import reverse
 from django.conf import settings
-#from django_filters.views import  FilterView
+
+
+# from django_filters.views import  FilterView
 
 
 # Create your views here.
@@ -25,9 +27,10 @@ class CarListView(ListView):
     paginate_by = 2
     queryset = Car.objects.all()
     template_name = 'Car/index.html'
+
     def get(self, request):
         category_name = request.GET.get('category_name', None)
-        if category_name ==  None:
+        if category_name == None:
             parts = Car.objects.all()
         else:
             parts = Car.objects.filter(category=category_name)
@@ -37,6 +40,7 @@ class CarListView(ListView):
             "categories": categories
         }
         return render(request, self.template_name, context)
+
 
 #
 # class CategoryList(FilterView):
@@ -74,3 +78,15 @@ class CarDetailView(DetailView):
     def get_object(self):
         pk = self.kwargs.get('pk')
         return get_object_or_404(Car, pk=pk)
+
+
+class shopDetailsView(DetailView):
+    model = Car
+    template_name = "Buyer/shop.html"
+    def get_object(self):
+        pk=self.kwargs.get('pk')
+        return get_object_or_404(Car,pk=pk)
+
+class OrderConfrimView(DetailView):
+    model= Car
+    template_name="Buyer/orderconfirm.html"

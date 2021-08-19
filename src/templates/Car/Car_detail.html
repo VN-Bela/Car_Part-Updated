@@ -11,7 +11,7 @@
     <tr><td>Part Description:</td><td>{{car.Car_Part_Discription}}</td></tr>
     <tr><td>Owner Details:</td><td>{{car.Owner_info}}</td></tr>
 </table>
-
+<a href="{% url 'Car_Part_App:shop' car.pk %} ">Purchase</a>
+{% endblock %}
 </body>
 </html>
-{% endblock%}

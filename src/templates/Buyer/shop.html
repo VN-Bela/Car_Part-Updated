@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+<h1>Confirm Your Order</h1>
+{% block content %}
+
+<div>
+<pre>Your Order id is: {{car.pk}}
+ProductName : {{car.Car_Part_Name}} for <b>{{car.Car_model}} Model</b> of <b>{{car.Car_name}} Car</b>
+<a href="{% url 'Buyer:ConfirmOrder'%}">Confirm</a>
+</pre>
+</div>
+
+{% endblock%}
