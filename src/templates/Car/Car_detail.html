@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content%}
+<html>
+<head><title>Car Part Information </title></head>
+<body>
+<table>
+    <tr><td>{{car.pk}}</td></tr>
+    <tr><td>Part Name:</td><td>{{car.Car_Part_Name}}</td></tr>
+    <tr><td>Part Information:</td><td>{{car.Car_Part_Info}}</td></tr>
+    <tr><td>Part Category:</td><td>{{car.Car_Part_Cat}}</td></tr>
+    <tr><td>Part Description:</td><td>{{car.Car_Part_Discription}}</td></tr>
+    <tr><td>Owner Details:</td><td>{{car.Owner_info}}</td></tr>
+</table>
+
+</body>
+</html>
+{% endblock%}
