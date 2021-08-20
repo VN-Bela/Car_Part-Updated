@@ -10,6 +10,6 @@ urlpatterns = [
     path('parts_data/', views.CarCreateView.as_view(), name='parts_data'),
     path("car_detail/<int:pk>", views.CarDetailView.as_view(), name="car_detail"),
     path("shop/<int:pk>",views.shopDetailsView.as_view(),name="shop"),
-    path("Orderconfirm",views.OrderConfrimView.as_view(),name="Orderconfirm"),
+    path("Orderconfirm/<int:pk>",views.sendmail,name="Orderconfirm"),
 
 ]

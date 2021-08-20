@@ -33,6 +33,7 @@ class Car(models.Model):
     Owner_info = models.CharField(max_length=200, null=True)
     seller = models.ForeignKey(user, related_name="Car_Part_App", on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    Part_Image=models.ImageField()
 
     def __str__(self):
         return self.Car_Part_Name

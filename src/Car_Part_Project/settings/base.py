@@ -135,7 +135,10 @@ EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER='bela.testmail@gmail.com'
-EMAIL_HOST_PASSWORD='bela@tes@123'
+EMAIL_HOST_PASSWORD='bela@test@123'
 
 LOGIN_REDIRECT_URL = '../login_temp'
 LOGOUT_REDIRECT_URL = '/'
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL='/media/'

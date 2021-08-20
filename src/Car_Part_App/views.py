@@ -1,15 +1,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from django.views.generic import ListView, CreateView, DetailView
-from django.views.generic.base import TemplateView
-
+# from django.views.generic.base import TemplateView
+from django.core.mail import send_mail
 # from .filters import CategoryFilter
 from .models import Car, Category
 from django.contrib.auth import login
 from .forms import Car_Part_Form
 from django.urls import reverse
 from django.conf import settings
-
+from django.core.mail import EmailMessage
 
 # from django_filters.views import  FilterView
 
@@ -87,6 +87,20 @@ class shopDetailsView(DetailView):
         pk=self.kwargs.get('pk')
         return get_object_or_404(Car,pk=pk)
 
-class OrderConfrimView(DetailView):
-    model= Car
-    template_name="Buyer/orderconfirm.html"
+
+# class OrderConfrimView(ListView):
+#     model= Car
+#     template_name="Buyer/orderconfirm.html"
+
+def sendmail(request,pk):
+    post=Car.objects.get(pk=pk)
+    user=request.user
+    subject ="Order Received"
+    messege= f"Your {post.Car_Part_Name} Part has been Purchased By {user.username}"
+    sender=settings.EMAIL_HOST_USER
+    reciver={'bela.vnurture@gmail.com'}
+    send_mail(
+        subject,messege,sender,reciver
+    )
+    return render(request,"Buyer/orderconfirm.html")
+

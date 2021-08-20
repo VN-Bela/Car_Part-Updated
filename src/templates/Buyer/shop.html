@@ -5,7 +5,7 @@
 <div>
 <pre>Your Order id is: {{car.pk}}
 ProductName : {{car.Car_Part_Name}} for <b>{{car.Car_model}} Model</b> of <b>{{car.Car_name}} Car</b>
-<a href="{% url 'Buyer:ConfirmOrder'%}">Confirm</a>
+<a href="{% url 'Car_Part_App:Orderconfirm' car.pk%}">Confirm</a>
 </pre>
 </div>
 
