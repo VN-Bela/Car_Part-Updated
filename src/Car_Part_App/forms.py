@@ -15,5 +15,6 @@ class Car_Part_Form(forms.ModelForm):
             'category',
             'Car_Part_Discription',
             'Owner_info',
+            'Part_Image',
         ]
 

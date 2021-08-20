@@ -63,10 +63,11 @@ class CarCreateView(CreateView):
     #     'Owner_info',
     # ]
     def post(self, request, *args, **kwargs):
-        form = Car_Part_Form(request.POST or None)
+        form = Car_Part_Form(request.POST or None, request.FILES)
         if form.is_valid():
             car_part = form.save(commit=False)
             car_part.seller = request.user
+            # car_part.Part_Image = request.FILES['Part_Image']
             car_part.save()
         return redirect(reverse('Car_Part_App:Data'))
 
