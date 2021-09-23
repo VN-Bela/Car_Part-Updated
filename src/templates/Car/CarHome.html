@@ -3,10 +3,18 @@
 
 {% block content %}
 <div>
+<<<<<<< HEAD
 
 <form method="post" enctype="multipart/form-data">
  {% csrf_token %}
     <table>
+=======
+<form method="post" enctype="multipart/form-data">
+
+ {% csrf_token %}
+    <table>
+    
+>>>>>>> 63fc51b4f4b5d3d416a2c60a364cc7713909ce53
     {{form.as_table}}
     </table>
     <input type="submit" name="Submit"/>

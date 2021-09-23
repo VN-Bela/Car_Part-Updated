@@ -6,9 +6,12 @@
     {% csrf_token %}
 <!-- Filter Category -->
     <p>Parts Category:</p>
+<<<<<<< HEAD
     {% if user.user_role == 0 %}
         <p><a href="{% url 'Car_Part_App:parts_data'%}">Add Part</a></p>
     {% endif %}
+=======
+>>>>>>> 63fc51b4f4b5d3d416a2c60a364cc7713909ce53
     <select name="category_name">
      {% for cat in categories  %}
       <option value="{{cat.pk}}">{{cat.name}}</option>
