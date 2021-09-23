@@ -13,16 +13,12 @@
     <tr><td>Owner Details:</td><td>{{car.Owner_info}}</td></tr>
 </table>
 
-<<<<<<< HEAD
+
 {% if object.BUYER == user %}
 <a href="{% url 'Car_Part_App:shop' car.pk %} ">Purchase</a>
 {% endif %}
 
 {% endblock %}
 
-=======
-<a href="{% url 'Car_Part_App:shop' car.pk %} ">Purchase</a>
-{% endblock %}
->>>>>>> 63fc51b4f4b5d3d416a2c60a364cc7713909ce53
 </body>
 </html>

@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 # from django.http import HttpResponse
 from django.views.generic import ListView, CreateView, DetailView
-<<<<<<< HEAD
 from django.core.mail import send_mail
 from .models import Car, Category
 from .forms import Car_Part_Form
@@ -9,7 +8,6 @@ from django.urls import reverse
 from django.conf import settings
 #from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
-=======
 # from django.views.generic.base import TemplateView
 from django.core.mail import send_mail
 # from .filters import CategoryFilter
@@ -21,7 +19,7 @@ from django.conf import settings
 from django.core.mail import EmailMessage
 
 # from django_filters.views import  FilterView
->>>>>>> 63fc51b4f4b5d3d416a2c60a364cc7713909ce53
+
 
 
 # Create your views here.
@@ -79,7 +77,7 @@ class CarCreateView(CreateView):
             car_part.seller = request.user
             # car_part.Part_Image = request.FILES['Part_Image']
             car_part.save()
-<<<<<<< HEAD
+
         return redirect(reverse('Car_Part_App:parts_data'))
 
     def get(self, request, *args, **kwargs):
@@ -99,10 +97,9 @@ class CarCreateView(CreateView):
     #     if self.request.user == role.seller:
     #         return True
     #     return False
-=======
         return redirect(reverse('Car_Part_App:Data'))
 
->>>>>>> 63fc51b4f4b5d3d416a2c60a364cc7713909ce53
+
 
 class CarDetailView(DetailView):
     model = Car
