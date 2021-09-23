@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="get">
+    {% csrf_token %}
+<!-- Filter Category -->
+    <p>Parts Category:</p>
+    {% if user.user_role == 0 %}
+        <p><a href="{% url 'Car_Part_App:parts_data'%}">Add Part</a></p>
+    {% endif %}
+    <select name="category_name">
+     {% for cat in categories  %}
+      <option value="{{cat.pk}}">{{cat.name}}</option>
+      {% endfor %}
+     </select>
+<input type='submit' name="category" value="submit">
+</form>
+
+
+
+<!-- Display Data -->
+<table cellpadding="10px">
+    <tr><th>Car Parts Name</th><th>Car Parts Information</th></tr>
+    {% for data in parts %}
+    <tr><td><a href="{% url 'Car_Part_App:car_detail' data.pk%}">{{data.Car_Part_Name}}</a></td><td>{{data.Car_Part_Info}}</td></tr>
+    {% endfor %}
+</table>
+
+
+<!-- Pagination -->
+{% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+
+
+{% endblock %}
